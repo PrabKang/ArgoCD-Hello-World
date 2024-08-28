@@ -2,22 +2,22 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: hello-world
-  name: hello-world
+    app: solar-system
+  name: solar-system
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: hello-world
+      app: solar-system
   strategy: {}
   template:
     metadata:
       labels:
-        app: hello-world
+        app: solar-system
     spec:
       containers:
-      - image: hello-world:latest
-        name: hello-world
+      - image: siddharth67/solar-system:v9
+        name: solar-system
         imagePullPolicy: Always
         ports: 
         - containerPort: 80
