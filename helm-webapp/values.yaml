@@ -5,8 +5,8 @@ port: 80
 configmap:
   name: myhelmapp-configmap-v1
   data:
-    CUSTOM_HEADER: 'This app was deployed with helm!'
+    CUSTOM_HEADER: 'deployed with helm'
 
 image:
-  name: hello-world
-  tag: latest
+  name: hello-world:latest
+  #tag: latest
