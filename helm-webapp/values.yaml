@@ -9,4 +9,4 @@ configmap:
 
 image:
   name: bkimminich/juice-shop
-  tag: latest
+  #tag: latest
