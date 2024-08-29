@@ -8,5 +8,5 @@ configmap:
     CUSTOM_HEADER: 'deployed with helm'
 
 image:
-  name: bkimminich/juice-shop
-  #tag: latest
+  name: thenetworkchuck/networkchuckhouse
+  tag: latest
