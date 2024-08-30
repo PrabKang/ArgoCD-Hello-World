@@ -9,4 +9,4 @@ configmap:
 
 image:
   name: prab/argo #thenetworkchuck/networkchuckhouse
-  tag: latest
+  tag: 0.1 #latest
