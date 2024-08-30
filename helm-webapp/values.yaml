@@ -8,5 +8,5 @@ configmap:
     CUSTOM_HEADER: 'deployed with helm'
 
 image:
-  name: thenetworkchuck/networkchuckhouse
+  name: prab/argo #thenetworkchuck/networkchuckhouse
   tag: latest
