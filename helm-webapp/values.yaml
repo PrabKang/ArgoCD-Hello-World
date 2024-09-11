@@ -8,5 +8,5 @@ configmap:
     CUSTOM_HEADER: 'deployed with helm'
 
 image:
-  name: prab/argo #thenetworkchuck/networkchuckhouse
+  name: harbor.byhiras.co.uk/systems/prab-test
   tag: 0.1 #latest
