@@ -9,4 +9,4 @@ configmap:
 
 image:
   name: harbor.byhiras.co.uk/systems/prab-test
-  tag: 0.1 #latest
+  tag: latest #0.1 
