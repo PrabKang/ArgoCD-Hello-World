@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: Deployment #Deployment is used to manage a set of Pods with replicated application instances.
 metadata:
   name: {{ .Values.appName }}
   labels:
@@ -10,26 +10,26 @@ spec:
     matchLabels:
       app: {{ .Values.appName }}
       tier: frontend
-  template:
-    metadata:
+  template: #Describes the Pod template used by the deployment. This template defines the configuration for the Pods that will be created.
+    metadata: #Labels for the Pods. These labels will match the deployment's selector to ensure the Pods created by the template are managed by the deployment.
       labels:
         app: {{ .Values.appName }}
         tier: frontend
-    spec: # Pod spec
-      containers:
+    spec: # Pod spec #The specification for the Pods themselves, including the containers they run and other configurations.
+      containers: #Defines the containers that will run inside each Pod. In this case, a single container named mycontainer.
       - name: mycontainer
-        image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
+        image: "{{ .Values.image.name }}:{{ .Values.image.tag }}" #The container image to be used for the container. The image name and tag are dynamically set from the values.yaml file using {{ .Values.image.name }} and {{ .Values.image.tag }}.
         ports:
         - containerPort: 80
-        envFrom:
+        envFrom: #environment variables into the container from a ConfigMap. The name of the ConfigMap is dynamically set using the value from the values.yaml file.
         - configMapRef:
             name: {{ .Values.configmap.name }}
-        resources:
+        resources: #Specifies the minimum amount of CPU (50m, or 50 milliseconds of CPU time) and memory (16Mi, or 16 MiB) the container requires to run.
           requests:
             memory: "16Mi" 
             cpu: "50m"    # 500milliCPUs (1/2 CPU)
           limits:
             memory: "128Mi"
             cpu: "100m"
-      imagePullSecrets:
+      imagePullSecrets: #secret used to authenticate and pull the container image from a private Docker registry
         - name: docker-registry-credentials

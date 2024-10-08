@@ -1,6 +1,6 @@
 
-replicas: 1
+replicas: 1 #Defines how many instances (or replicas) of your application should run.
 
-configmap:
-  data:
+configmap: #Kubernetes ConfigMap, which stores configuration data for the application.
+  data: #holds the actual configuration values in key-value pairs
     CUSTOM_HEADER: 'DEV environment'

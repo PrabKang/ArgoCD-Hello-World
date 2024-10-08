@@ -1,15 +1,15 @@
-apiVersion: v1
-kind: Service
-metadata:
-  name: {{ .Values.appName }}
-  labels:
-    app: {{ .Values.appName }}
-spec:
-  ports:
-  - port: 80
-    protocol: TCP
-    name: flask
-  selector:
-    app: {{ .Values.appName }}
-    tier: frontend
-  type: NodePort
+apiVersion: v1 #the Kubernetes API version being used. v1 is the stable version for core resources like Service.
+kind: Service # the type of Kubernetes resource. In this case, it’s a Service, which is used to expose an application running on a set of Pods to the network.
+metadata: #contains data to uniquely identify the resource, such as its name and labels.
+  name: {{ .Values.appName }} #The name of the service
+  labels: #grouping, selecting, and filtering resources.
+    app: {{ .Values.appName }} #replaced with the app name from the Helm values file.
+spec: #defines how it will behave, including ports and selectors.
+  ports: #the ports that the service will expose.
+  - port: 80 #The port on which the service will be accessible. Here, the service will listen on port 80
+    protocol: TCP #The network protocol being used for communication
+    name: flask #The name of this port within the service
+  selector: # defines which Pods this service will target
+    app: {{ .Values.appName }} #the service targets only the Pods with the same appName
+    tier: frontend #An additional label to refine which Pods are selected
+  type: NodePort #Defines how the service is exposed.

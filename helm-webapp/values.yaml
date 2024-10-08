@@ -1,12 +1,12 @@
-appName: myhelmapp
+appName: myhelmapp #The name of the application.
 
-port: 80
+port: 80 #The port on which the application will be exposed
 
 configmap:
-  name: myhelmapp-configmap-v1
-  data:
-    CUSTOM_HEADER: 'deployed with helm'
+  name: myhelmapp-configmap-v1 #This is the name of the ConfigMap
+  data: #this section stores the key-value pairs of configuration data
+    CUSTOM_HEADER: 'deployed with helm' #This is a key in the ConfigMap, and its value is 'deployed with helm'. This could be used as a custom HTTP header or any other configuration parameter the application needs.
 
-image:
-  name: harbor.byhiras.co.uk/legacy-container-registry/prabkang/dockerk8s
+image: #defines the Docker image that the application will use.
+  name: harbor.byhiras.co.uk/legacy-container-registry/prabkang/dockerk8s #the full path of the Docker image to be pulled from the registry
   tag: 0.1 
